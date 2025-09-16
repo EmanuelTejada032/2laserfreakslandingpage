@@ -3,149 +3,463 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2laserfreaks - Próximamente</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>2laserfreaks - Arte de Pared</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        
         body {
             font-family: 'Inter', sans-serif;
+            background: #fefefe;
+            color: #333;
+            line-height: 1.6;
         }
         
-        .mountain-silhouette {
-            background: linear-gradient(to right, #1f2937, #374151);
-            clip-path: polygon(0 100%, 15% 60%, 25% 70%, 35% 45%, 50% 55%, 65% 35%, 80% 50%, 90% 40%, 100% 60%, 100% 100%);
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
         
-        .glow-effect {
-            box-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
+        /* Header */
+        header {
+            padding: 40px 0 30px;
+            text-align: center;
         }
         
-        .fade-in {
-            animation: fadeIn 2s ease-in-out;
+        .logo h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 8rem;
+            font-weight: 700;
+            color: #262626;
+            margin-bottom: 0;
+            letter-spacing: -0.025em;
         }
         
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+        .logo .freaks {
+            color: #404040;
+            font-style: italic;
         }
         
-        .pulse-glow {
-            animation: pulseGlow 3s ease-in-out infinite;
+        .tagline {
+            font-size: 0.8rem;
+            color: #888;
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-top: 8px;
         }
         
-        @keyframes pulseGlow {
-            0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.4); }
-            50% { box-shadow: 0 0 40px rgba(59, 130, 246, 0.8); }
+        .artistic-ornament {
+            font-size: 1.5rem;
+            color: #999;
+            margin: 10px 0;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .hero-artwork {
+            background: white;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            margin-bottom: 40px;
+            max-width: 56rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-artwork img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            display: block;
+        }
+        
+        .hero h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 400;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1rem;
+            color: #666;
+            max-width: 500px;
+            margin: 0 auto 40px;
+            line-height: 1.7;
+        }
+        
+        .coming-soon-button {
+            display: inline-block;
+            background: #1a1a1a;
+            color: white;
+            padding: 15px 40px;
+            margin: 40px 0 20px;
+            font-size: 1rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+        
+        .coming-soon-subtitle {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1rem;
+            color: #666;
+            margin: 0;
+        }
+        
+        /* Gallery Section */
+        .gallery-section {
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .gallery-section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 400;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+        }
+        
+        .gallery-subtitle {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .artistic-divider {
+            width: 60px;
+            height: 1px;
+            background: #ccc;
+            margin: 0 auto 50px;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .gallery-item {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .gallery-frame {
+            background: #f8f8f8;
+            border: 1px solid #e0e0e0;
+            padding: 15px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .gallery-inner-frame {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 200px;
+        }
+        
+        .gallery-inner-frame img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        
+        /* Placeholder for when no image is provided - remove these if using real images */
+        .gallery-inner-frame.no-image::before {
+            content: '';
+            width: 120px;
+            height: 120px;
+            background: #1a1a1a;
+            display: block;
+        }
+        
+        .tree-frame .gallery-inner-frame.no-image::before {
+            clip-path: polygon(45% 0%, 55% 0%, 60% 25%, 70% 30%, 75% 45%, 70% 55%, 80% 65%, 75% 80%, 60% 85%, 55% 100%, 45% 100%, 40% 85%, 25% 80%, 20% 65%, 30% 55%, 25% 45%, 30% 30%, 40% 25%);
+        }
+        
+        .cat-frame .gallery-inner-frame.no-image::before {
+            clip-path: polygon(15% 80%, 20% 60%, 25% 45%, 35% 40%, 45% 35%, 65% 35%, 75% 40%, 85% 45%, 90% 60%, 95% 80%, 90% 90%, 80% 95%, 20% 95%, 10% 90%);
+        }
+        
+        .mountain-frame .gallery-inner-frame.no-image::before {
+            clip-path: polygon(0 100%, 15% 55%, 30% 35%, 50% 45%, 70% 20%, 85% 40%, 100% 30%, 100% 100%);
+        }
+        
+        .gallery-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 5px;
+        }
+        
+        .gallery-description {
+            font-size: 0.85rem;
+            color: #888;
+        }
+        
+        .quote-section {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.2rem;
+            color: #555;
+            text-align: center;
+            margin: 60px 0;
+        }
+        
+        /* Process Section */
+        .process-section {
+            padding: 80px 0;
+            background-color: #f0f0f0eb;
+            text-align: center;
+        }
+        
+        .process-section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 60px;
+        }
+        
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 60px;
+            margin-bottom: 80px;
+        }
+        
+        .process-item {
+            text-align: center;
+        }
+        
+        .process-icon {
+            font-size: 3.5rem;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .process-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+        }
+        
+        .process-description {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .bottom-quote {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 0.95rem;
+            color: #888;
+            margin-bottom: 20px;
+        }
+        
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid #f0f0f0;
+        }
+        
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+        }
+        
+        .footer-tagline {
+            font-size: 0.85rem;
+            color: #888;
+            margin-bottom: 20px;
+        }
+        
+        .footer-copyright {
+            font-size: 0.8rem;
+            color: #aaa;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .logo h1 {
+                font-size: 4rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            .gallery-grid,
+            .process-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .gallery-section h3,
+            .process-section h3 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo h1 {
+                font-size: 2.8rem;
+            }
+            
+            .container {
+                padding: 0 15px;
+            }
+            
+            .hero-artwork {
+                margin-bottom: 30px;
+            }
+            
+            .gallery-frame {
+                height: 160px;
+                padding: 20px;
+            }
+            
+            .quote-section {
+                font-size: 1rem;
+                margin: 40px 0;
+            }
         }
     </style>
 </head>
-<body class="bg-gray-900 text-white min-h-screen flex flex-col">
-    <!-- Mountain Silhouette Background -->
-    <div class="mountain-silhouette fixed top-0 left-0 w-full h-32 opacity-20"></div>
-    
-    <!-- Main Content -->
-    <div class="flex-1 flex items-center justify-center px-4 relative z-10">
-        <div class="max-w-4xl mx-auto text-center fade-in">
-            <!-- Logo/Brand -->
-            <div class="mb-8">
-                <h1 class="text-6xl md:text-8xl font-bold text-white mb-4 tracking-tight">
-                    2laser<span class="text-blue-400">freaks</span>
-                </h1>
-                <div class="w-24 h-1 bg-blue-400 mx-auto mb-6"></div>
-            </div>
-            
-            <!-- Hero Message -->
-            <div class="mb-12">
-                <!--  translated hero message to Spanish -->
-                <h2 class="text-2xl md:text-4xl font-light text-gray-300 mb-6 leading-relaxed">
-                    Arte de Pared Cortado con Láser de Precisión
-                </h2>
-                <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
-                    Transforma tu espacio con impresionantes diseños de siluetas. Desde majestuosas cordilleras hasta escenas juguetonas de animales, creamos cada pieza con precisión láser.
-                </p>
-            </div>
-            
-            <!-- Sample Art Preview -->
-            <div class="mb-12 flex justify-center items-center space-x-8 opacity-60">
-                <!-- Mountain Silhouette -->
-                <div class="w-20 h-12 bg-white" style="clip-path: polygon(0 100%, 20% 40%, 40% 60%, 60% 20%, 80% 50%, 100% 30%, 100% 100%)"></div>
-                <!-- Tree Silhouette -->
-                <div class="w-8 h-16 bg-white" style="clip-path: polygon(40% 0%, 60% 0%, 100% 100%, 0% 100%)"></div>
-                <!-- Cat Silhouette -->
-                <div class="w-16 h-12 bg-white" style="clip-path: polygon(10% 80%, 20% 60%, 25% 40%, 30% 30%, 40% 25%, 60% 25%, 70% 30%, 75% 40%, 80% 60%, 90% 80%, 85% 90%, 75% 95%, 25% 95%, 15% 90%)"></div>
-            </div>
-            
-            <!-- Coming Soon Message -->
-            <div class="mb-12">
-                <div class="inline-block bg-gray-800 rounded-full px-8 py-4 pulse-glow">
-                    <!--  translated "Coming Soon" to Spanish -->
-                    <span class="text-2xl font-semibold text-blue-400">Próximamente</span>
-                </div>
-                <p class="text-gray-400 mt-4 text-lg">
-                    <!--  translated subtitle message to Spanish -->
-                    Estamos dando los toques finales a algo increíble
-                </p>
-            </div>
-            
-            <!-- Email Signup -->
-             <!--
-            <div class="mb-8">
-                <div class="max-w-md mx-auto">
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <input 
-                            type="email" 
-                            placeholder="Ingresa tu email para actualizaciones"
-                            class="flex-1 px-6 py-4 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50"
-                        >
-                        <button class="px-8 py-4 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-lg transition-colors duration-200 glow-effect">
-                            
-                            Notificarme
-                        </button>
-                    </div>
-                </div>
-            </div>
-            -->
-            <!-- Features Preview -->
-            <div class="grid md:grid-cols-3 gap-8 max-w-3xl mx-auto text-center">
-                <div class="p-6">
-                    <div class="w-12 h-12 bg-blue-500 rounded-full mx-auto mb-4 flex items-center justify-center">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                        </svg>
-                    </div>
-                    <!--  translated feature titles and descriptions to Spanish -->
-                    <h3 class="text-lg font-semibold text-white mb-2">Precisión Láser</h3>
-                    <p class="text-gray-400 text-sm">Cada corte es perfecto, cada detalle nítido</p>
-                </div>
-                
-                <div class="p-6">
-                    <div class="w-12 h-12 bg-blue-500 rounded-full mx-auto mb-4 flex items-center justify-center">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-lg font-semibold text-white mb-2">Diseños Personalizados</h3>
-                    <p class="text-gray-400 text-sm">Piezas únicas adaptadas a tu espacio</p>
-                </div>
-                
-                <div class="p-6">
-                    <div class="w-12 h-12 bg-blue-500 rounded-full mx-auto mb-4 flex items-center justify-center">
-                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-lg font-semibold text-white mb-2">Materiales Premium</h3>
-                    <p class="text-gray-400 text-sm">Construido para durar, diseñado para impresionar</p>
-                </div>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>2laser<span class="freaks">freaks</span></h1>
+                <div class="artistic-ornament">❦</div>
             </div>
         </div>
-    </div>
-    
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-artwork">
+                <img src="public/hero-wall-art.png" alt="Arte de Pared Láser">
+            </div>
+            
+            <h2>Arte de Pared Cortado con Láser de Precisión</h2>
+            <p>Transforma tu espacio con impresionantes diseños de siluetas. Desde majestuosas cordilleras hasta escenas juguetonas de animales, creamos cada pieza con precisión láser y pasión artística.</p>
+            
+            <div class="coming-soon-button">Próximamente</div>
+            <p class="coming-soon-subtitle">Estamos dando los toques finales a algo increíble</p>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <h3>Nuestra Galería</h3>
+            <p class="gallery-subtitle">Cada pieza es única, cortada con precisión láser para crear arte que transforma espacios</p>
+            <div class="artistic-divider"></div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div class="gallery-frame tree-frame">
+                        <div class="gallery-inner-frame">
+                            <img src="public/tree-silhouette.png" alt="Árbol Majestuoso"> 
+                        </div>
+                    </div>
+                    <h4 class="gallery-title">Árbol Majestuoso</h4>
+                    <p class="gallery-description">Silueta elegante de árbol con ramas detalladas</p>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="gallery-frame cat-frame">
+                        <div class="gallery-inner-frame">
+                            <img src="public/cat-silhouette.png" alt="Felino Gracioso"> 
+                        </div>
+                    </div>
+                    <h4 class="gallery-title">Felino Gracioso</h4>
+                    <p class="gallery-description">Gato sentado en pose elegante y minimalista</p>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="gallery-frame mountain-frame">
+                        <div class="gallery-inner-frame">
+                            <img src="public/mountain-silhouette.png" alt="Cordillera Geométrica"> 
+                        </div>
+                    </div>
+                    <h4 class="gallery-title">Cordillera Geométrica</h4>
+                    <p class="gallery-description">Montañas estilizadas con bosque en la base</p>
+                </div>
+            </div>
+            
+            <div class="quote-section">
+                <p>"El arte no reproduce lo visible, sino que hace visible lo invisible"</p>
+            </div>
+            
+            <div class="artistic-ornament">❦</div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section">
+        <div class="container">
+            <h3>Nuestro Proceso Artístico</h3>
+            
+            <div class="process-grid">
+                <div class="process-item">
+                    <div class="process-icon">✦</div>
+                    <h4 class="process-title">Precisión Láser</h4>
+                    <p class="process-description">Cada corte es perfecto, cada detalle nítido. Tecnología de vanguardia al servicio del arte.</p>
+                </div>
+                
+                <div class="process-item">
+                    <div class="process-icon">❋</div>
+                    <h4 class="process-title">Diseños Personalizados</h4>
+                    <p class="process-description">Piezas únicas adaptadas a tu espacio. Tu visión, nuestra precisión artística.</p>
+                </div>
+                
+                <div class="process-item">
+                    <div class="process-icon">✧</div>
+                    <h4 class="process-title">Materiales Premium</h4>
+                    <p class="process-description">Construido para durar, diseñado para impresionar. Calidad que perdura en el tiempo.</p>
+                </div>
+            </div>
+            
+            <p class="bottom-quote">Desde la precisión absoluta se maximiza con la sensibilidad artística</p>
+        </div>
+    </section>
+
     <!-- Footer -->
-    <footer class="py-8 text-center text-gray-500 text-sm relative z-10">
-        <!--  translated footer text to Spanish -->
-        <p>&copy; 2024 2laserfreaks. Creando arte de pared de precisión.</p>
+    <footer>
+        <div class="container">
+            <div class="footer-logo">2laserfreaks</div>
+            <p class="footer-tagline">Creando arte de pared de precisión desde el corazón</p>
+            <p class="footer-copyright">© 2024 2laserfreaks. Todos los derechos reservados.</p>
+        </div>
     </footer>
 </body>
 </html>
